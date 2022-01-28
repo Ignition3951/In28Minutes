@@ -1,12 +1,17 @@
 package com.in28minutes.spring.SpringBasics;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.in28minutes.spring.SpringBasics.basic.BinarySearchImpl;
 
-@SpringBootApplication
+//@SpringBootApplication
+@Configuration
+@ComponentScan
 public class SpringBasicsApplication {
 	
 	//What are the beans to be managed-->@Component
@@ -17,7 +22,9 @@ public class SpringBasicsApplication {
 	public static void main(String[] args) {
 //		BinarySearchImpl binarySearchImpl = new BinarySearchImpl(
 //				new QuickSortAlgorithm());
-ApplicationContext applicationContext = SpringApplication.run(SpringBasicsApplication.class, args);
+//ApplicationContext applicationContext = SpringApplication.run(SpringBasicsApplication.class, args);
+		ApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SpringBasicsApplication.class);
 		
 		BinarySearchImpl binarySearchImpl = applicationContext.getBean(BinarySearchImpl.class);
 		BinarySearchImpl binarySearchImpl1 = applicationContext.getBean(BinarySearchImpl.class);

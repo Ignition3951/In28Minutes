@@ -24,6 +24,7 @@ public class SpringBasicsScopeXmlConfigApplication {
 
 			XmlPersonDAO personDAO = applicationContext.getBean(XmlPersonDAO.class);
 			LOGGER.info("{}", personDAO);
+			LOGGER.info("{}", personDAO);
 			LOGGER.info("{}", personDAO.getXmlJdbcConnection());
 		}
 	}

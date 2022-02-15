@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.in28minutes.spring.SpringBasics.scope.PersonDAO;
 import com.in28minutes.spring.SpringBasics.xml.XmlPersonDAO;
 
 //@SpringBootApplication
@@ -23,7 +22,9 @@ public class SpringBasicsScopeXmlConfigApplication {
 				"applicationContext.xml")) {
 
 			XmlPersonDAO personDAO = applicationContext.getBean(XmlPersonDAO.class);
-			LOGGER.info("{}", personDAO);
+			
+			LOGGER.info("Loaded Bean definitions : {}", 
+						(Object)applicationContext.getBeanDefinitionNames());
 			LOGGER.info("{}", personDAO);
 			LOGGER.info("{}", personDAO.getXmlJdbcConnection());
 		}
